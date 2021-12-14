@@ -1,0 +1,61 @@
+{
+	"data": [
+		{
+			"empId": "1424838",
+			"firstName": "Victor",
+			"lastName": "Wu",
+			"mobileNumber": "9876543201",
+			"emailId": "victor.wu@gmail.com",
+			"xEmp": "true"			
+		},
+        {
+			"empId": "1424839",
+			"firstName": "Tashi",
+			"lastName": "Dhundhup",
+			"mobileNumber": "2134567890",
+			"emailId": "tashi.dhu@gmail.com",
+			"xEmp": "false"				
+		},
+        {
+			"empId": "1424840",
+			"firstName": "James",
+			"lastName": "Smith",
+			"mobileNumber": "5768908765",
+			"emailId": "james.smith@gmail.com"	,
+			"xEmp": "false"			
+		},
+        {
+			"empId": "1424841",
+			"firstName": "Andy",
+			"lastName": "Luo",
+			"mobileNumber": "7654345679",
+			"emailId": "andy.luo@gmail.com"	,
+			"xEmp": "true"			
+		},
+        {
+			"empId": "1424842",
+			"firstName": "Pankaj",
+			"lastName": "khadse",
+			"mobileNumber": "8765437658",
+			"emailId": "pankaj.khadse@gmail.com"	,
+			"xEmp": "true"			
+		},
+		{
+			"empId": "1424843",
+			"firstName": "Alicia",
+			"lastName": "Seirra",
+			"mobileNumber": "0987654334",
+			"emailId": "alicia.seirra@gmail.com"	,
+			"xEmp": "true"			
+		},
+		{
+			"empId": "1424844",
+			"firstName": "Surbhi",
+			"lastName": "Goyal",
+			"mobileNumber": "8765432345",
+			"emailId": "surbhi.goyal@gmail.com"	,
+			"xEmp": "false"			
+		}
+
+    ]
+    }

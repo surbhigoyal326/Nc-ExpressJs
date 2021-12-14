@@ -2,20 +2,16 @@ var express = require('express');
 var router = express.Router();
 var jwt = require("jsonwebtoken");
 
-// /* GET users listing. */
-// router.get('/', function(req, res, next) {
-//   res.send('respond with a resource');
-// });
 
 router.post('/login', function(req,res,next){
   console.log(req);
-  let cred = req.body.email === 'admin';
+  let cred = req.body.username === 'admin';
 
   
    if(cred) {
      if(req.body.password === 'admin'){
          // generate token
-         let token = jwt.sign({username:'admin'},'secret', {expiresIn : '30s'});
+         let token = jwt.sign({username:'admin'},'secret', {expiresIn : '60s'});
 
          return res.status(200).json(token);
 
@@ -24,13 +20,9 @@ router.post('/login', function(req,res,next){
      }
    }
    else {
-     return res.status(501).json({message:'User email is not registered.'})
+     return res.status(501).json({message:'User name is not registered.'})
    }
  
-
-  // promise.catch(function(err){
-  //   return res.status(501).json({message:'Some internal error'});
-  // })
 })
 
 router.get('/username', verifyToken, function(req,res,next){
@@ -52,4 +44,5 @@ function verifyToken(req,res,next){
    }
  })
 }
+
 module.exports = router;
