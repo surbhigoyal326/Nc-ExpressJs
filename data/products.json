@@ -1,0 +1,29 @@
+{
+	"data": [
+		{
+			"title": "Define the digital lifestyle with our cloud-native Digital BSS/OSS products",
+			"image": "assets/images/banner_mobile_left_v2.jpg",
+			"url": "https://www.netcracker.com/portfolio/products/"
+		},
+		{
+			"title": "Achieve operational and business goals with our digital and cloud transformation services",
+			"image": "assets/images/banner_mobile_left_v4.jpg",
+			"url": "https://www.netcracker.com/portfolio/services/"
+		},
+		{
+			"title": "Maximize Automation with AI-Driven Operations",
+			"image": "assets/images/Pillar-700x500px-AI-Operations.jpg",
+			"url": "https://www.netcracker.com/portfolio/solutions/automated-operations-and-orchestration/"
+		},
+		{
+			"title": "Accelerate Migration to Multicloud",
+			"image": "assets/images/Pillar-700x500px-Multicloud.jpg",
+			"url": "https://www.netcracker.com/portfolio/solutions/cloud-transformation-services/"
+		},
+		{
+			"title": "Revolutionize BSS with Cloud and Saas",
+			"image": "assets/images/Pillar-700x500px-Revolutionize-BSS.jpg",
+			"url": "https://www.netcracker.com/portfolio/solutions/netcracker-cloud-bss/"
+		}
+	]
+}

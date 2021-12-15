@@ -7,6 +7,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var employeeRouter = require('./routes/employee');
+var productRouter = require('./routes/products');
 
 var app = express();
 
@@ -28,7 +29,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/employee', employeeRouter)
+app.use('/employee', employeeRouter);
+app.use('/products', productRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -46,15 +48,5 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-
-var fs = require('fs');
-var obj;
-app.get('/getEmployees', function (req, res) {
-fs.readFile('./data/employeeData.json', 'utf8', function (err, data) {
-  if (err) throw err;
-  obj = JSON.parse(data);
-});
-return obj;
-})
 
 module.exports = app;
