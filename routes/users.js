@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var jwt = require("jsonwebtoken");
-
+var isJwtExpired = require("jwt-check-expiration");
 
 router.post('/login', function (req, res, next) {
   console.log(req);
@@ -12,8 +12,10 @@ router.post('/login', function (req, res, next) {
     if (req.body.password === 'admin') {
       // generate token
       let token = jwt.sign({ username: 'admin' }, 'secret', { expiresIn: '60s' });
+      
+      let refreshToken = jwt.sign({ username: 'admin' }, 'refresh_secret', { expiresIn: '1h' })
 
-      return res.status(200).json(token);
+      return res.status(200).json({token: token,refreshToken: refreshToken});
 
     } else {
       return res.status(501).json({ message: ' Invalid Credentials' });
@@ -26,18 +28,23 @@ router.post('/login', function (req, res, next) {
 })
 
 router.get('/username', verifyToken, function (req, res, next) {
-  return res.status(200).json(decodedToken.username);
+  return res.status(200).json({username:decodedToken.username, newAccessToken: newAccessToken});
 })
 
 var decodedToken = '';
+var newAccessToken;
 function verifyToken(req, res, next) {
-  //console.log('HI'+req)
-  let token = JSON.parse(req.headers.token);
+  let requestToken = JSON.parse(req.headers.token);
 
-  jwt.verify(token, 'secret', function (err, tokendata) {
+  if (requestToken == null) {
+    return res.status(403).json({ message: "Refresh Token is required!" });
+  }
+
+  jwt.verify(requestToken, 'refresh_secret', function (err, tokendata) {
     if (err) {
-      return res.status(400).json({ message: ' Unauthorized request' });
+      return res.status(400).json({ message: ' Unauthorized request, user has to sign in again' });
     }
+     newAccessToken = jwt.sign({username:"admin"}, "secret" , {expiresIn: '60s'});
     if (tokendata) {
       decodedToken = tokendata;
       next();
